@@ -1,3 +1,7 @@
+@import url('styles/pages/AuthPage.css');
+@import url('styles/pages/EditPage.css');
+@import url('styles/components/Navbar.css');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +11,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a {
+  text-decoration: none;
 }
+
+table {
+  width: 100%;
+}
+
+.table__item {
+
+}
+
+.table__item:hover {
+  background: #B3E5FC;
+}
+
+.input__wrapper {
+  margin: 10px 0;
+}
+
+.title {
+  font-size: 32px;
+}
+
+
