@@ -2,7 +2,7 @@
     background: #E1F5FE;
     width: 100%;
     box-sizing: border-box;
-    padding: 30px;
+    padding: 10px 30px 30px 30px;
     margin: 20px 0;
     border-radius: 10px;
     display: flex;
@@ -19,4 +19,8 @@
 
 .btn__wrapper {
     margin-right: 10px;
+}
+
+.file-input {
+    /*background: #2980B9;*/
 }

@@ -2,6 +2,8 @@ import {request} from "../services/httpService";
 import toast from "react-hot-toast";
 import {getUserInfo} from "./authController";
 import {BASE_URL} from "../config/api";
+import axios from "axios";
+import {toTranslit} from "../services/translitService";
 
 export const getAllTrainings = async () => {
     try {
@@ -143,4 +145,33 @@ export const generateDocument = async (type, trainingId) => {
         return
     }
     return filename
+}
+
+export const uploadDocument = async (file, trainingId, reportType) => {
+    const data = new FormData();
+    let filename = null
+    if (file !== null) {
+        data.append('file', file)
+        data.append('filename', toTranslit(file.name))
+        data.append('trainingId', trainingId)
+        data.append('reportType', reportType)
+
+        try {
+            // await request('/training/upload-document', data, 'POST', {'Content-Type': 'multipart/form-data'} )
+            const config = {
+                headers: {
+                    'content-type': 'multipart/form-data',
+                },
+            };
+            const response = await axios.post(`${BASE_URL}/training/upload-document`, data, config)
+            filename = response.data.filename
+            if (filename) {
+                toast.success('Отчет загружен')
+            }
+        } catch (e) {
+            console.error(e.message)
+            toast.error(e.message)
+        }
+        return filename
+    }
 }

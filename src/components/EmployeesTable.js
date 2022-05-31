@@ -3,7 +3,7 @@ import React, {useEffect} from 'react'
 export const EmployeesTable = ({ employees }) => {
 
     useEffect(() => {
-        console.log('employees', employees)
+        // console.log('employees', employees)
     }, [])
 
     if (!employees.length) {

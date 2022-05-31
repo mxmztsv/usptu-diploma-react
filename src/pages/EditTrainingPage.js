@@ -8,6 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import {getTrainingById, removeTraining, saveTraining} from "../controllers/TrainingsController";
 import {useEffect, useState} from "react";
 import {InternshipForm} from "../components/InternshipForm";
+import {TrainingForm} from "../components/TrainingForm";
 
 export const EditTrainingPage = () => {
 
@@ -22,7 +23,10 @@ export const EditTrainingPage = () => {
         watch,
         setValue,
         formState: {errors},
-    } = useForm()
+    } = useForm({
+        defaultValues: {
+            trainingType: ''
+        }})
 
     const trainingType = watch("trainingType")
 
@@ -114,9 +118,7 @@ export const EditTrainingPage = () => {
                 { trainingId && ((trainingType === "Стажировка") ? (
                     <InternshipForm trainingId={trainingId}/>
                 ) : (
-                    <div className="edit-page__card">
-                        <h2>Форма повышения квалификации</h2>
-                    </div>
+                    <TrainingForm trainingId={trainingId}/>
                 )) }
             </Container>
         </section>
