@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import {NavLink} from "react-router-dom";
-import {signOut} from "../controllers/authController";
+import {getUserInfo, signOut} from "../controllers/authController";
 
 const NavBar = () => {
 
@@ -20,7 +20,7 @@ const NavBar = () => {
         // <header className="navbar">
         <nav className="navbar">
             {/*<div className="nav-wrapper">*/}
-            <span className="brand-logo">USPTU</span>
+            <span className="brand-logo">{`USPTU (${getUserInfo().surname} ${getUserInfo().name} ${getUserInfo().middleName})`}</span>
             {/*<span className="brand-logo">Админ панель ({name})</span>*/}
             <ul>
                 <li><NavLink style={({ isActive }) => {

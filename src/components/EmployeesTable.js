@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react'
+import {useNavigate} from "react-router-dom";
 
 export const EmployeesTable = ({ employees }) => {
 
-    useEffect(() => {
-        // console.log('employees', employees)
-    }, [])
+    const navigate = useNavigate()
 
     if (!employees.length) {
         return <p>Пусто</p>
@@ -32,7 +31,9 @@ export const EmployeesTable = ({ employees }) => {
             <tbody>
             { employees.map((employee, index) => {
                 return (
-                    <tr key={employee.Id_prepodavatelya} className="table__item">
+                    <tr key={employee.Id_prepodavatelya} className="table__item" onClick={() => {
+                        navigate(`/edit-employee/${employee.Id_prepodavatelya}`)
+                    }}>
                         <td>{employee.Id_prepodavatelya}</td>
                         <td>{employee.Familiya}</td>
                         <td>{employee.Imya}</td>

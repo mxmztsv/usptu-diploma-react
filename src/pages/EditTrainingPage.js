@@ -33,7 +33,6 @@ export const EditTrainingPage = () => {
     const onSubmit = async (data) => {
         data.trainingId = trainingId
         const trainingData = await saveTraining(data)
-        console.log('trainingData', trainingData)
         setTrainingId(trainingData.Id_povysheniya_kvalifikacii)
         window.history.replaceState( {} , '', `/edit-training/${trainingData.Id_povysheniya_kvalifikacii}` )
     }
