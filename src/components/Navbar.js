@@ -23,38 +23,35 @@ const NavBar = () => {
             <span className="brand-logo">{`USPTU (${getUserInfo().surname} ${getUserInfo().name} ${getUserInfo().middleName})`}</span>
             {/*<span className="brand-logo">Админ панель ({name})</span>*/}
             <ul>
+                { getUserInfo().isSuperuser && (<>
+                    <li><NavLink style={({ isActive }) => {
+                        return {
+                            display: "block",
+                            color: isActive ? "white" : "#E0E0E0"
+                        };
+                    }}
+                                 to="/">Преподаватели</NavLink></li>
+                    <li><NavLink style={({ isActive }) => {
+                        return {
+                            display: "block",
+                            color: isActive ? "white" : "#E0E0E0"
+                        };
+                    }}
+                                 to="/departments">Подразделения</NavLink></li>
+                </>) }
+
                 <li><NavLink style={({ isActive }) => {
                     return {
                         display: "block",
-                        color: isActive ? "white" : "white"
-                    };
-                }}
-                             to="/">Преподаватели</NavLink></li>
-                <li><NavLink style={({ isActive }) => {
-                    return {
-                        display: "block",
-                        color: isActive ? "white" : "white"
-                    };
-                }}
-                             to="/departments">Подразделения</NavLink></li>
-                <li><NavLink style={({ isActive }) => {
-                    return {
-                        display: "block",
-                        color: isActive ? "white" : "white"
+                        color: isActive ? "white" : "#E0E0E0"
                     };
                 }}
                              to="/trainings">Повышение квалификации</NavLink></li>
-                <li><NavLink style={({ isActive }) => {
-                    return {
-                        display: "block",
-                        color: isActive ? "white" : "white"
-                    };
-                }}
-                             to="/trainings">Профиль</NavLink></li>
+
                 <li><NavLink onClick={signOut} style={({ isActive }) => {
                     return {
                         display: "block",
-                        color: isActive ? "white" : "white"
+                        color: isActive ? "white" : "#E0E0E0"
                     };
                 }}
                              to="/">Выйти</NavLink></li>

@@ -26,6 +26,16 @@ export const getTrainingById = async (trainingId) => {
     }
 }
 
+export const getAllTrainingsByEmployeeId = async (employeeId) => {
+    try {
+        const response = await request(`/training/get-all-by-employee-id/${employeeId}`, null, 'GET')
+        return response
+    } catch (e) {
+        console.error(e.message)
+        toast.error(e.message)
+    }
+}
+
 export const getTrainingFormByTrainingId = async (trainingId) => {
     try {
         const response = await request(`/training-form/get-by-training-id/${trainingId}`, null, 'GET')

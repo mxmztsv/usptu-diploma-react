@@ -43,6 +43,7 @@ export const InternshipForm = ({trainingId}) => {
     const onSubmit = async (data) => {
         data.trainingId = trainingId
         data.formId = internshipFormId
+        console.log(data)
         const internshipFormData = await saveInternshipForm(data)
         setInternshipFormId(internshipFormData.Id_formy_stazhirovki)
     }

@@ -44,7 +44,8 @@ export const getUserInfo = () => {
         name: null,
         surname: null,
         middleName: null,
-        id: null
+        id: null,
+        // isSuperuser: null
     }
 }
 

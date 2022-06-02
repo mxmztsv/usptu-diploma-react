@@ -12,7 +12,7 @@ export const App = () => {
   const isAuthenticated = userInfo.id
   const isSuperuser = userInfo.isSuperuser
   // const isAuthenticated = false
-  const routes = useRoutes(isAuthenticated)
+  const routes = useRoutes(isAuthenticated, isSuperuser)
   return (
       <AuthContext.Provider value={{
         id: userInfo.id, name: userInfo.name, surname: userInfo.surname, middleName: userInfo.middleName, isAuthenticated, isSuperuser

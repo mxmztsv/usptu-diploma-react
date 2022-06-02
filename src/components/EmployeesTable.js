@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {useNavigate} from "react-router-dom";
+import Button from "@mui/material/Button";
 
-export const EmployeesTable = ({ employees }) => {
+export const EmployeesTable = ({employees}) => {
 
     const navigate = useNavigate()
 
@@ -29,10 +30,10 @@ export const EmployeesTable = ({ employees }) => {
             </thead>
 
             <tbody>
-            { employees.map((employee, index) => {
+            {employees.map((employee, index) => {
                 return (
                     <tr key={employee.Id_prepodavatelya} className="table__item" onClick={() => {
-                        navigate(`/edit-employee/${employee.Id_prepodavatelya}`)
+                        navigate(`/employee/${employee.Id_prepodavatelya}`)
                     }}>
                         <td>{employee.Id_prepodavatelya}</td>
                         <td>{employee.Familiya}</td>
@@ -46,7 +47,7 @@ export const EmployeesTable = ({ employees }) => {
                         <td>{employee.Stazh}</td>
                     </tr>
                 )
-            }) }
+            })}
             </tbody>
         </table>
     )
