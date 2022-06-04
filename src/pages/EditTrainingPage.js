@@ -91,14 +91,12 @@ export const EditTrainingPage = () => {
                         <div className="input__wrapper">
                             <label htmlFor="startDate">Дата начала:</label>
                             <input type="date" id="startDate"
-                                   min="2018-01-01" max="2018-12-31"
                                    {...register("startDate", {required: true})}
                             />
                         </div>
                         <div className="input__wrapper">
                             <label htmlFor="endDate">Дата завершения:</label>
                             <input type="date" id="endDate"
-                                   min="2018-01-01" max="2018-12-31"
                                    {...register("endDate", {required: true})}
                             />
                         </div>

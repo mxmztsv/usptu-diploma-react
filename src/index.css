@@ -17,10 +17,16 @@ a {
 
 table {
   width: 100%;
+  margin-top: 30px;
 }
 
 .table__item {
+  line-height: 50px;
+}
 
+td {
+  vertical-align: center;
+  text-align: center;
 }
 
 .table__item:hover {
@@ -37,6 +43,12 @@ table {
 
 .btn__wrapper {
   z-index: 99999;
+}
+
+input[type="date"] {
+  border: #2980B9 2px solid;
+  border-radius: 10px;
+  width: 100%;
 }
 
 
