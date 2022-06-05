@@ -163,6 +163,7 @@ export const EditEmployeePage = () => {
                                                 label="Ученая степень"
                                                 onChange={onChange}
                                             >
+                                                <MenuItem value={'-'}>-</MenuItem>
                                                 <MenuItem value={'Кандидат наук'}>Кандидат наук</MenuItem>
                                                 <MenuItem value={'Доктор наук'}>Доктор наук</MenuItem>
                                             </Select>
@@ -186,6 +187,7 @@ export const EditEmployeePage = () => {
                                                 label="Звание"
                                                 onChange={onChange}
                                             >
+                                                <MenuItem value={'-'}>-</MenuItem>
                                                 <MenuItem value={'Доцент'}>Доцент</MenuItem>
                                                 <MenuItem value={'Профессор'}>Профессор</MenuItem>
                                             </Select>
