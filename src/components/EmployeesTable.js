@@ -1,6 +1,7 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom";
 import Button from "@mui/material/Button";
+import {toRU} from "../services/dateService";
 
 export const EmployeesTable = ({employees}) => {
 
@@ -9,8 +10,6 @@ export const EmployeesTable = ({employees}) => {
     if (!employees.length) {
         return <p>Пусто</p>
     }
-
-    // todo: подразделение
 
     return (
         <table>
@@ -39,11 +38,11 @@ export const EmployeesTable = ({employees}) => {
                         <td>{employee.Familiya}</td>
                         <td>{employee.Imya}</td>
                         <td>{employee.Otchestvo}</td>
-                        <td>{employee.Data_Rozhdeniya}</td>
+                        <td>{toRU(employee.Data_Rozhdeniya)}</td>
                         <td>{employee.Dolzhnost}</td>
                         <td>{employee.Uchenaya_stepen}</td>
                         <td>{employee.Zvanie}</td>
-                        <td>{employee.Data_priema}</td>
+                        <td>{toRU(employee.Data_priema)}</td>
                         <td>{employee.Stazh}</td>
                     </tr>
                 )

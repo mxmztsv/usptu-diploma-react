@@ -1,5 +1,6 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom";
+import {toRU} from "../services/dateService";
 
 export const TrainingsTable = ({trainings}) => {
 
@@ -28,8 +29,8 @@ export const TrainingsTable = ({trainings}) => {
                     }}>
                         <td>{training.Id_povysheniya_kvalifikacii}</td>
                         <td>{training.Forma_povysheniya_kvalifikacii}</td>
-                        <td>{training.Data_nachala}</td>
-                        <td>{training.Data_zaversheniya}</td>
+                        <td>{toRU(training.Data_nachala)}</td>
+                        <td>{toRU(training.Data_zaversheniya)}</td>
                     </tr>
                 )
             })}

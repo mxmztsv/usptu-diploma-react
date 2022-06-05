@@ -5,6 +5,7 @@ import {getEmployeesById} from "../controllers/employeesController";
 import Button from "@mui/material/Button";
 import {TrainingsTable} from "../components/TrainingsTable";
 import {getAllTrainingsByEmployeeId} from "../controllers/TrainingsController";
+import {toRU} from "../services/dateService";
 
 export const EmployeePage = () => {
 
@@ -36,22 +37,22 @@ export const EmployeePage = () => {
                 <h1 className="title">{employeeData.Familiya} {employeeData.Imya} {employeeData.Otchestvo}</h1>
                 <div className="employee-page__info">
                     <p className="employee-page__info__text">
-                        Дата рождения: {employeeData.Data_Rozhdeniya}
+                        <b>Дата рождения:</b> {toRU(employeeData.Data_Rozhdeniya)}
                     </p>
                     <p className="employee-page__info__text">
-                        Должность: {employeeData.Dolzhnost}
+                        <b>Должность:</b> {employeeData.Dolzhnost}
                     </p>
                     <p className="employee-page__info__text">
-                        Ученая степень: {employeeData.Uchenaya_stepen}
+                        <b>Ученая степень:</b> {employeeData.Uchenaya_stepen}
                     </p>
                     <p className="employee-page__info__text">
-                        Звание: {employeeData.Zvanie}
+                        <b>Звание:</b> {employeeData.Zvanie}
                     </p>
                     <p className="employee-page__info__text">
-                        Дата приема: {employeeData.Data_priema}
+                        <b>Дата приема:</b> {toRU(employeeData.Data_priema)}
                     </p>
                     <p className="employee-page__info__text">
-                        Стаж (лет): {employeeData.Stazh}
+                        <b>Стаж (лет):</b> {employeeData.Stazh}
                     </p>
                 </div>
                 <Button variant="contained" onClick={() => {
