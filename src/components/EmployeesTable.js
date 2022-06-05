@@ -1,8 +1,10 @@
 import React from 'react'
 import {useNavigate} from "react-router-dom";
-import Button from "@mui/material/Button";
 import {toRU} from "../services/dateService";
 
+/**
+ * Компонент таблицы преподавателей. Все аналогично таблице подраздений.
+ */
 export const EmployeesTable = ({employees}) => {
 
     const navigate = useNavigate()

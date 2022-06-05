@@ -2,6 +2,9 @@ import React from 'react'
 import {useNavigate} from "react-router-dom";
 import {toRU} from "../services/dateService";
 
+/**
+ * Компонент таблицы повышений квалификации. Все аналогично таблице подраздений.
+ */
 export const TrainingsTable = ({trainings}) => {
 
     const navigate = useNavigate()

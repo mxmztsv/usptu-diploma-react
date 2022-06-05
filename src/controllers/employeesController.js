@@ -1,7 +1,9 @@
 import {request} from "../services/httpService";
 import toast from "react-hot-toast";
-import {getUserInfo} from "./authController";
 
+/**
+ * Функция получения всех преподавателей.
+ */
 export const getAllEmployees = async() => {
     let response
     try {
@@ -13,6 +15,9 @@ export const getAllEmployees = async() => {
     }
 }
 
+/**
+ * Функция получения преподавателя по id.
+ */
 export const getEmployeesById = async(id) => {
     let response
     try {
@@ -24,6 +29,9 @@ export const getEmployeesById = async(id) => {
     }
 }
 
+/**
+ * Функция сохранения преподавателя.
+ */
 export const saveEmployee = async (data) => {
     let response
     try {
@@ -37,6 +45,9 @@ export const saveEmployee = async (data) => {
     return response
 }
 
+/**
+ * Функция удаления преподавателя.
+ */
 export const removeEmployee = async (employeeId) => {
     let response
     try {

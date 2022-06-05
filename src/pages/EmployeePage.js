@@ -7,25 +7,33 @@ import {TrainingsTable} from "../components/TrainingsTable";
 import {getAllTrainingsByEmployeeId} from "../controllers/TrainingsController";
 import {toRU} from "../services/dateService";
 
+
+/**
+ * Страница преподавателя.
+ */
 export const EmployeePage = () => {
 
+    // В состоянии храним данные преподавателя и массив его ПК
     const [employeeData, setEmployeeData] = useState({})
     const [trainings, setTrainings] = useState([])
 
+    // Используем параметры из URL и навигацию
     const params = useParams()
     const navigate = useNavigate()
 
+    // Функция получения преподавателя по id
     const getEmployee = async () => {
         const employee = await getEmployeesById(params.id)
         setEmployeeData(employee)
     }
 
-
+    // Функция получения ПК преподавателя
     const getTrainings = async () => {
         setTrainings(await getAllTrainingsByEmployeeId(params.id))
     }
 
     useEffect(() => {
+        // При рендере вызываем получение данных преподавателя и его ПК
         getEmployee()
         getTrainings()
     }, []);

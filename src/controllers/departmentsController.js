@@ -1,6 +1,13 @@
 import {request} from "../services/httpService";
 import toast from "react-hot-toast";
 
+/**
+ * Контроллер для работы с подразделением.
+ */
+
+/**
+ * Функция получения всех подразделений.
+ */
 export const getAllDepartments = async() => {
     let response
     try {
@@ -12,6 +19,9 @@ export const getAllDepartments = async() => {
     }
 }
 
+/**
+ * Функция получения подразделения по id.
+ */
 export const getDepartmentById = async(id) => {
     let response
     try {
@@ -23,6 +33,9 @@ export const getDepartmentById = async(id) => {
     }
 }
 
+/**
+ * Функция сохранения подразделения.
+ */
 export const saveDepartment = async (data) => {
     let response
     try {
@@ -36,6 +49,9 @@ export const saveDepartment = async (data) => {
     return response
 }
 
+/**
+ * Функция удаления подраздения.
+ */
 export const removeDepartment = async (departmentId) => {
     let response
     try {

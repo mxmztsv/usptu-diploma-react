@@ -5,6 +5,9 @@ import {BASE_URL} from "../config/api";
 import axios from "axios";
 import {toTranslit} from "../services/translitService";
 
+/**
+ * Функция получения всех повышений квалификации.
+ */
 export const getAllTrainings = async () => {
     try {
         const employeeId = getUserInfo().id
@@ -16,6 +19,10 @@ export const getAllTrainings = async () => {
     }
 }
 
+
+/**
+ * Функция получения ПК по id.
+ */
 export const getTrainingById = async (trainingId) => {
     try {
         const response = await request(`/training/get-by-id/${trainingId}`, null, 'GET')
@@ -26,6 +33,10 @@ export const getTrainingById = async (trainingId) => {
     }
 }
 
+
+/**
+ * Функция получения всех ПК по id преподавателя.
+ */
 export const getAllTrainingsByEmployeeId = async (employeeId) => {
     try {
         const response = await request(`/training/get-all-by-employee-id/${employeeId}`, null, 'GET')
@@ -36,6 +47,10 @@ export const getAllTrainingsByEmployeeId = async (employeeId) => {
     }
 }
 
+
+/**
+ * Функция получения всех форм ПК по id ПК.
+ */
 export const getTrainingFormByTrainingId = async (trainingId) => {
     try {
         const response = await request(`/training-form/get-by-training-id/${trainingId}`, null, 'GET')
@@ -46,6 +61,9 @@ export const getTrainingFormByTrainingId = async (trainingId) => {
     }
 }
 
+/**
+ * Функция получения всех форм стажировки по id ПК.
+ */
 export const getInternshipFormByTrainingId = async (trainingId) => {
     try {
         const response = await request(`/internship-form/get-by-training-id/${trainingId}`, null, 'GET')
@@ -56,6 +74,10 @@ export const getInternshipFormByTrainingId = async (trainingId) => {
     }
 }
 
+
+/**
+ * Функция сохранения ПК.
+ */
 export const saveTraining = async (data) => {
     let response
     try {
@@ -70,6 +92,10 @@ export const saveTraining = async (data) => {
     return response
 }
 
+
+/**
+ * Функция сохранения формы стажировки.
+ */
 export const saveInternshipForm = async (data) => {
     let response
     try {
@@ -83,6 +109,10 @@ export const saveInternshipForm = async (data) => {
     return response
 }
 
+
+/**
+ * Функция сохранения формы ПК.
+ */
 export const saveTrainingForm = async (data) => {
     let response
     try {
@@ -97,6 +127,10 @@ export const saveTrainingForm = async (data) => {
 
 }
 
+
+/**
+ * Функция удаления ПК.
+ */
 export const removeTraining = async (trainingId) => {
     let response
     try {
@@ -110,6 +144,10 @@ export const removeTraining = async (trainingId) => {
     }
     return response
 }
+
+/**
+ * Функция удаления формы стажировки.
+ */
 
 export const removeInternshipForm = async (formId) => {
     let response
@@ -125,6 +163,10 @@ export const removeInternshipForm = async (formId) => {
     return response
 }
 
+
+/**
+ * Функция удаления формы ПК.
+ */
 export const removeTrainingForm = async (formId) => {
     let response
     try {
@@ -139,6 +181,10 @@ export const removeTrainingForm = async (formId) => {
     return response
 }
 
+
+/**
+ * Функция генерации документа.
+ */
 export const generateDocument = async (type, trainingId) => {
     let filename = null
     try {
@@ -157,22 +203,28 @@ export const generateDocument = async (type, trainingId) => {
     return filename
 }
 
+
+/**
+ * Функция загрузки документа.
+ */
 export const uploadDocument = async (file, trainingId, reportType) => {
-    const data = new FormData();
+    // Создаем объект формы
+    const data = new FormData()
     let filename = null
     if (file !== null) {
+        // Добавляем в форму данные
         data.append('file', file)
         data.append('filename', toTranslit(file.name))
         data.append('trainingId', trainingId)
         data.append('reportType', reportType)
 
         try {
-            // await request('/training/upload-document', data, 'POST', {'Content-Type': 'multipart/form-data'} )
             const config = {
                 headers: {
-                    'content-type': 'multipart/form-data',
+                    'content-type': 'multipart/form-data', // Указываем такой заголовок, тк отправляем форму с файлом
                 },
-            };
+            }
+            // Используем для отправки библиотку axios, тк с ее помощью удобнее отправлять форму с файлами
             const response = await axios.post(`${BASE_URL}/training/upload-document`, data, config)
             filename = response.data.filename
             if (filename) {

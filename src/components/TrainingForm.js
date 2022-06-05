@@ -4,15 +4,18 @@ import TextField from "@mui/material/TextField";
 import {useEffect, useState} from "react";
 import {
     generateDocument,
-    getInternshipFormByTrainingId, getTrainingFormByTrainingId,
-    removeInternshipForm, removeTrainingForm,
-    saveInternshipForm, saveTrainingForm,
+    getTrainingFormByTrainingId,
+    removeTrainingForm,
+    saveTrainingForm,
     uploadDocument
 } from "../controllers/TrainingsController";
 import {BASE_URL} from "../config/api";
 import {FormControl, InputLabel, Select} from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
 
+/**
+ * Компонент формы для отчета о повышении квалификации. Все аналогично как в форме стажировки.
+ */
 export const TrainingForm = ({trainingId}) => {
 
     const [trainingFormId, setTrainingFormId] = useState(null);
@@ -28,7 +31,6 @@ export const TrainingForm = ({trainingId}) => {
         handleSubmit,
         control,
         setValue,
-        formState: {errors},
     } = useForm({
         defaultValues: {
             topic: '',
@@ -55,7 +57,8 @@ export const TrainingForm = ({trainingId}) => {
             resolutionReviews: '',
             poorPerfomanceReasons: '',
             improvementSuggestions: ''
-        }})
+        }
+    })
 
     const onSubmit = async (data) => {
         data.trainingId = trainingId
@@ -212,7 +215,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Изменения в рабочих программы дисциплин"} required
+                                <TextField onChange={onChange} value={value}
+                                           label={"Изменения в рабочих программы дисциплин"} required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />
@@ -224,7 +228,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Изменение в рабочие программы образовательных программ"} required
+                                <TextField onChange={onChange} value={value}
+                                           label={"Изменение в рабочие программы образовательных программ"} required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />
@@ -236,7 +241,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Переработка по дисциплинам"} required
+                                <TextField onChange={onChange} value={value} label={"Переработка по дисциплинам"}
+                                           required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />
@@ -248,7 +254,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Переработка для образовательных программ"} required
+                                <TextField onChange={onChange} value={value}
+                                           label={"Переработка для образовательных программ"} required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />
@@ -260,7 +267,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Разработка АПИМ (КИМ) по дисциплинам"} required
+                                <TextField onChange={onChange} value={value}
+                                           label={"Разработка АПИМ (КИМ) по дисциплинам"} required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />
@@ -272,7 +280,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Разработка АПИМ (КИМ) для образовательных программ"} required
+                                <TextField onChange={onChange} value={value}
+                                           label={"Разработка АПИМ (КИМ) для образовательных программ"} required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />
@@ -284,7 +293,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Другие показатели результатов ПК"} required
+                                <TextField onChange={onChange} value={value} label={"Другие показатели результатов ПК"}
+                                           required
                                            fullWidth inputProps={{maxlength: 50}}/>
                             )}
                         />
@@ -296,9 +306,10 @@ export const TrainingForm = ({trainingId}) => {
                             rules={{required: true}}
                             fullWidth
                             control={control}
-                            render={({ field: { onChange, value } }) => (
+                            render={({field: {onChange, value}}) => (
                                 <FormControl fullWidth>
-                                    <InputLabel id="select-training-type-label">Оценка содержания программы обучения</InputLabel>
+                                    <InputLabel id="select-training-type-label">Оценка содержания программы
+                                        обучения</InputLabel>
                                     <Select
                                         labelId="select-training-type-label"
                                         id="demo-simple-select"
@@ -322,9 +333,10 @@ export const TrainingForm = ({trainingId}) => {
                             rules={{required: true}}
                             fullWidth
                             control={control}
-                            render={({ field: { onChange, value } }) => (
+                            render={({field: {onChange, value}}) => (
                                 <FormControl fullWidth>
-                                    <InputLabel id="select-training-type-label">Оценка соответствия заявленной программы прослушанному материалу</InputLabel>
+                                    <InputLabel id="select-training-type-label">Оценка соответствия заявленной программы
+                                        прослушанному материалу</InputLabel>
                                     <Select
                                         labelId="select-training-type-label"
                                         id="demo-simple-select"
@@ -348,9 +360,10 @@ export const TrainingForm = ({trainingId}) => {
                             rules={{required: true}}
                             fullWidth
                             control={control}
-                            render={({ field: { onChange, value } }) => (
+                            render={({field: {onChange, value}}) => (
                                 <FormControl fullWidth>
-                                    <InputLabel id="select-training-type-label">Соответствие содержания программы требованиям</InputLabel>
+                                    <InputLabel id="select-training-type-label">Соответствие содержания программы
+                                        требованиям</InputLabel>
                                     <Select
                                         labelId="select-training-type-label"
                                         id="demo-simple-select"
@@ -372,9 +385,10 @@ export const TrainingForm = ({trainingId}) => {
                             rules={{required: true}}
                             fullWidth
                             control={control}
-                            render={({ field: { onChange, value } }) => (
+                            render={({field: {onChange, value}}) => (
                                 <FormControl fullWidth>
-                                    <InputLabel id="select-training-type-label">Оценка уровня организации ПК</InputLabel>
+                                    <InputLabel id="select-training-type-label">Оценка уровня организации
+                                        ПК</InputLabel>
                                     <Select
                                         labelId="select-training-type-label"
                                         id="demo-simple-select"
@@ -398,9 +412,10 @@ export const TrainingForm = ({trainingId}) => {
                             rules={{required: true}}
                             fullWidth
                             control={control}
-                            render={({ field: { onChange, value } }) => (
+                            render={({field: {onChange, value}}) => (
                                 <FormControl fullWidth>
-                                    <InputLabel id="select-training-type-label">Целесообразность направления</InputLabel>
+                                    <InputLabel id="select-training-type-label">Целесообразность
+                                        направления</InputLabel>
                                     <Select
                                         labelId="select-training-type-label"
                                         id="demo-simple-select"
@@ -469,7 +484,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Комментарий к постановлению"} required
+                                <TextField onChange={onChange} value={value} label={"Комментарий к постановлению"}
+                                           required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />
@@ -482,7 +498,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Причины низкой результативности"} required
+                                <TextField onChange={onChange} value={value} label={"Причины низкой результативности"}
+                                           required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />
@@ -495,7 +512,8 @@ export const TrainingForm = ({trainingId}) => {
                             fullWidth
                             control={control}
                             render={({field: {onChange, value}}) => (
-                                <TextField onChange={onChange} value={value} label={"Предложения по устранению"} required
+                                <TextField onChange={onChange} value={value} label={"Предложения по устранению"}
+                                           required
                                            fullWidth multiline inputProps={{maxlength: 255}}/>
                             )}
                         />

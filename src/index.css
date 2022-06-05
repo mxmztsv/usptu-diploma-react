@@ -1,6 +1,4 @@
-@import url('styles/pages/AuthPage.css');
-@import url('styles/pages/EditPage.css');
-@import url('styles/components/Navbar.css');
+/*Здесь все стили приложения*/
 
 body {
   margin: 0;
@@ -69,3 +67,97 @@ input[type="date"]:hover {
   padding: 0 5px;
   font-family: 'Roboto', sans-serif;
 }
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  justify-content: space-between;
+  background: #2980B9;
+  color: #ffffff;
+  padding: 0 0px;
+  text-align: center;
+  align-content: center;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  /*height: 100%;*/
+  align-items: center;
+  text-align: center;
+  align-content: center;
+}
+
+.navbar li {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0 22px;
+  /*color: #cb4242;*/
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+}
+
+.navbar li a {
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  align-content: center;
+  /*color: #cb4242;*/
+
+}
+
+.brand-logo {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 30px;
+}
+
+.auth {
+  background: #2980B9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.auth__card {
+  background: white;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px 30px 30px;
+  justify-content: space-between;
+}
+
+.edit-page__card {
+  background: #E1F5FE;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 30px 30px 30px;
+  margin: 20px 0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.btn__wrapper {
+  margin-right: 10px;
+}
+

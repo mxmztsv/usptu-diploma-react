@@ -1,17 +1,21 @@
 import {Container, FormControl, InputLabel, Select} from "@mui/material";
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import {Controller, useForm} from "react-hook-form";
 import {getEmployeesById, removeEmployee, saveEmployee} from "../controllers/employeesController";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
-import {getAllDepartments, getDepartmentById} from "../controllers/departmentsController";
+import {getAllDepartments} from "../controllers/departmentsController";
 
+/**
+ * Страница редактирования сотрудника, очень похожа на страницу редактирования подразделения.
+ */
 export const EditEmployeePage = () => {
 
     const [employeeId, setEmployeeId] = useState(null)
-    const [departments, setDepartments] = useState([]);
+    // В состоянии нужно хранить массив существующих подразделений для элемента select
+    const [departments, setDepartments] = useState([])
 
     const params = useParams()
 
@@ -37,22 +41,21 @@ export const EditEmployeePage = () => {
             login: '',
             password: '',
             isSuperuser: 'false',
-        }})
+        }
+    })
 
     const onSubmit = async (data) => {
         data.id = employeeId
-        console.log(data)
         const employeeData = await saveEmployee(data)
-        console.log('employeeData', employeeData)
         setEmployeeId(employeeData.Id_prepodavatelya)
-        window.history.replaceState( {} , '', `/edit-employee/${employeeData.Id_prepodavatelya}` )
+        window.history.replaceState({}, '', `/edit-employee/${employeeData.Id_prepodavatelya}`)
     }
 
     const deleteEmployee = async () => {
         const response = await removeEmployee(employeeId)
-        console.log(response)
     }
 
+    // Функция получения массива подразделений для вариантов выбора в select
     const getDepartments = async () => {
         const departments = await getAllDepartments()
         setDepartments(departments)
@@ -76,7 +79,8 @@ export const EditEmployeePage = () => {
         }
     }
 
-    useEffect( () => {
+    useEffect(() => {
+        // При рендере компонента получем не только данные сотрудника, но и существующие подразделения для select
         getDepartments()
         getEmployee()
     }, []);
@@ -153,7 +157,7 @@ export const EditEmployeePage = () => {
                                     rules={{required: true}}
                                     fullWidth
                                     control={control}
-                                    render={({ field: { onChange, value } }) => (
+                                    render={({field: {onChange, value}}) => (
                                         <FormControl fullWidth>
                                             <InputLabel id="select-training-type-label">Ученая степень</InputLabel>
                                             <Select
@@ -177,7 +181,7 @@ export const EditEmployeePage = () => {
                                     rules={{required: true}}
                                     fullWidth
                                     control={control}
-                                    render={({ field: { onChange, value } }) => (
+                                    render={({field: {onChange, value}}) => (
                                         <FormControl fullWidth>
                                             <InputLabel id="select-training-type-label">Звание</InputLabel>
                                             <Select
@@ -209,7 +213,7 @@ export const EditEmployeePage = () => {
                                     rules={{required: true}}
                                     fullWidth
                                     control={control}
-                                    render={({ field: { onChange, value } }) => (
+                                    render={({field: {onChange, value}}) => (
                                         <FormControl fullWidth>
                                             <InputLabel id="select-training-type-label">Подразделение</InputLabel>
                                             <Select
@@ -234,9 +238,10 @@ export const EditEmployeePage = () => {
                                     rules={{required: true}}
                                     fullWidth
                                     control={control}
-                                    render={({ field: { onChange, value } }) => (
+                                    render={({field: {onChange, value}}) => (
                                         <FormControl fullWidth>
-                                            <InputLabel id="select-training-type-label">Сделать суперпользователем</InputLabel>
+                                            <InputLabel id="select-training-type-label">Сделать
+                                                суперпользователем</InputLabel>
                                             <Select
                                                 labelId="select-training-type-label"
                                                 id="demo-simple-select"

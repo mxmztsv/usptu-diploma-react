@@ -5,6 +5,9 @@ import {TrainingsTable} from "../components/TrainingsTable";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
 
+/**
+ * Страница списка повышений квалификации пользователя. Аналогична странице списка подразделений.
+ */
 export const TrainingsPage = () => {
 
     const [trainings, setTrainings] = useState([])

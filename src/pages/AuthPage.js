@@ -3,17 +3,20 @@ import {Controller, useForm} from 'react-hook-form';
 import Button from '@mui/material/Button';
 import {signIn} from "../controllers/authController";
 
+/**
+ * Страница авторизации.
+ */
 export const AuthPage = () => {
 
+    // Инициализируем форму с помощью библиотеки react-hook-form
     const {
-        register,
         handleSubmit,
         control,
-        formState: {errors},
     } = useForm()
 
+    // Функция обработки отправки данных на авторизацию
     const onSubmit = async (data) => {
-        const res = await signIn(data.login, data.password)
+        await signIn(data.login, data.password)
     }
 
     return (

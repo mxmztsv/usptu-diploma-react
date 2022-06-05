@@ -5,6 +5,9 @@ import {EmployeesTable} from "../components/EmployeesTable";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
 
+/**
+ * Страница списка сотрудников, аналогична странице списка подразделений.
+ */
 export const EmployeesPage = () => {
 
     const [employees, setEmployees] = useState([])

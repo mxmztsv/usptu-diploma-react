@@ -10,6 +10,10 @@ import {useEffect, useState} from "react";
 import {InternshipForm} from "../components/InternshipForm";
 import {TrainingForm} from "../components/TrainingForm";
 
+
+/**
+ * Страница редактирования подразделения. Очень похожа на остальные страницы редактирования.
+ */
 export const EditTrainingPage = () => {
 
     const [trainingId, setTrainingId] = useState(null);
@@ -28,6 +32,7 @@ export const EditTrainingPage = () => {
             trainingType: ''
         }})
 
+    // Нужно следить за изменением выбранного вырианта типа ПК в элементе select, для отображения формы ПК либо стажировки
     const trainingType = watch("trainingType")
 
     const onSubmit = async (data) => {
@@ -113,6 +118,7 @@ export const EditTrainingPage = () => {
                     </form>
                 </div>
                 { trainingId && ((trainingType === "Стажировка") ? (
+                    // Выводим либо компонент формы стажировки, либо ПК. В зависимости от выбранного типа ПК
                     <InternshipForm trainingId={trainingId}/>
                 ) : (
                     <TrainingForm trainingId={trainingId}/>

@@ -1,30 +1,33 @@
-import {AuthPage} from "./pages/AuthPage";
-import toast, { Toaster } from 'react-hot-toast';
+import {Toaster} from 'react-hot-toast';
 import {BrowserRouter as Router} from "react-router-dom";
 import {getUserInfo} from "./controllers/authController";
-import {AuthContext} from "./context/authContext";
 import {useRoutes} from "./routes";
-import Navbar from "./components/Navbar";
+import {NavBar} from "./components/Navbar";
 
+/**
+ * Корневой компонент приложения.
+ */
 export const App = () => {
-  // const {token, login, logout, userId, ready} = useAuth()
-  const userInfo = getUserInfo()
-  const isAuthenticated = userInfo.id
-  const isSuperuser = userInfo.isSuperuser
-  // const isAuthenticated = false
-  const routes = useRoutes(isAuthenticated, isSuperuser)
-  return (
-      <AuthContext.Provider value={{
-        id: userInfo.id, name: userInfo.name, surname: userInfo.surname, middleName: userInfo.middleName, isAuthenticated, isSuperuser
-      }}>
-        <Router>
-          { isAuthenticated && <Navbar/>}
-          <div>
-            {routes}
-          </div>
-        </Router>
-        <Toaster/>
-      </AuthContext.Provider>
-  )
+    // Получаем информацию о пользователе
+    const userInfo = getUserInfo()
+    const isAuthenticated = userInfo.id
+    const isSuperuser = userInfo.isSuperuser
+
+    // Получаем пути
+    const routes = useRoutes(isAuthenticated, isSuperuser)
+
+    return (
+        <>
+            {/*В Router кладем наши пути и Navbar, если пользователь авторизован*/}
+            <Router>
+                {isAuthenticated && <NavBar/>}
+                <div>
+                    {routes}
+                </div>
+            </Router>
+            {/*Компанент тостера для вывода сообщений пользователю*/}
+            <Toaster/>
+        </>
+    )
 }
 
