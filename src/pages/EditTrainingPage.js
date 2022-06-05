@@ -89,13 +89,13 @@ export const EditTrainingPage = () => {
                             />
                         </div>
                         <div className="input__wrapper">
-                            <label htmlFor="startDate">Дата начала:</label>
+                            <label htmlFor="startDate" className="date-label">Дата начала:</label>
                             <input type="date" id="startDate"
                                    {...register("startDate", {required: true})}
                             />
                         </div>
                         <div className="input__wrapper">
-                            <label htmlFor="endDate">Дата завершения:</label>
+                            <label htmlFor="endDate" className="date-label">Дата завершения:</label>
                             <input type="date" id="endDate"
                                    {...register("endDate", {required: true})}
                             />

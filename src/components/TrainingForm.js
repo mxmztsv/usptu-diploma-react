@@ -417,7 +417,7 @@ export const TrainingForm = ({trainingId}) => {
                     </div>
 
                     <div className="input__wrapper">
-                        <label htmlFor="reportDate">Дата протокола</label>
+                        <label htmlFor="reportDate" className="date-label">Дата протокола</label>
                         <input type="date" id="reportDate"
                                {...register("reportDate", {required: true})}
                         />

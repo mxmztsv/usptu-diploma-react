@@ -129,7 +129,7 @@ export const EditEmployeePage = () => {
                                 />
                             </div>
                             <div className="input__wrapper">
-                                <label htmlFor="birthdate">Дата рождения</label>
+                                <label htmlFor="birthdate" className="date-label">Дата рождения</label>
                                 <input type="date" id="birthdate"
                                        {...register("birthdate", {required: true})}
                                 />
@@ -194,7 +194,7 @@ export const EditEmployeePage = () => {
                                 />
                             </div>
                             <div className="input__wrapper">
-                                <label htmlFor="hiringDate">Дата приема</label>
+                                <label htmlFor="hiringDate" className="date-label">Дата приема</label>
                                 <input type="date" id="hiringDate"
                                        {...register("hiringDate", {required: true})}
                                 />
