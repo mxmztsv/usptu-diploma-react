@@ -21,7 +21,7 @@ export const EmployeesTable = ({employees}) => {
                 <th>Фамилия</th>
                 <th>Имя</th>
                 <th>Отчество</th>
-                <th>Дата рождения</th>
+                <th>Дата последнего ПК</th>
                 <th>Должность</th>
                 <th>Ученая степень</th>
                 <th>Звание</th>
@@ -40,7 +40,7 @@ export const EmployeesTable = ({employees}) => {
                         <td>{employee.Familiya}</td>
                         <td>{employee.Imya}</td>
                         <td>{employee.Otchestvo}</td>
-                        <td>{toRU(employee.Data_Rozhdeniya)}</td>
+                        <td>{employee.PK ? toRU(employee.PK) : '-'}</td>
                         <td>{employee.Dolzhnost}</td>
                         <td>{employee.Uchenaya_stepen}</td>
                         <td>{employee.Zvanie}</td>

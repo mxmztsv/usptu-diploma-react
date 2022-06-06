@@ -23,9 +23,7 @@ export const EditEmployeePage = () => {
         register,
         handleSubmit,
         control,
-        watch,
         setValue,
-        formState: {errors},
     } = useForm({
         defaultValues: {
             surname: '',
@@ -40,7 +38,7 @@ export const EditEmployeePage = () => {
             department: '',
             login: '',
             password: '',
-            isSuperuser: 'false',
+            isSuperuser: '',
         }
     })
 
@@ -235,7 +233,6 @@ export const EditEmployeePage = () => {
                             <div className="input__wrapper">
                                 <Controller
                                     name={"isSuperuser"}
-                                    rules={{required: true}}
                                     fullWidth
                                     control={control}
                                     render={({field: {onChange, value}}) => (

@@ -28,6 +28,7 @@ export const EmployeesPage = () => {
             <Container>
                 <h1 className="title">Преподаватели</h1>
                 <Button variant="contained" onClick={() => {navigate('/edit-employee')}}>Добавить преподавателя</Button>
+                <p>В порядке убывания прошедшего времени с даты последнего повышения квалификации.</p>
                 <EmployeesTable employees={employees}/>
             </Container>
         </section>
