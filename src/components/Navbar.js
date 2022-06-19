@@ -19,6 +19,12 @@ export const NavBar = () => {
                             display: "block",
                             color: isActive ? "white" : "#E0E0E0"
                         }
+                    }} to="/filters">Фильтры</NavLink></li>
+                    <li><NavLink style={({isActive}) => {
+                        return {
+                            display: "block",
+                            color: isActive ? "white" : "#E0E0E0"
+                        }
                     }} to="/">Преподаватели</NavLink></li>
                     <li><NavLink style={({isActive}) => {
                         return {

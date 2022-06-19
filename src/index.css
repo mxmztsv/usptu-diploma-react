@@ -43,7 +43,11 @@ td {
   z-index: 99999;
 }
 
-input[type="date"] {
+.simple-date {
+  margin: 0 10px;
+}
+
+input[type="date"]:not(.simple-date) {
   border: rgb(182, 182, 182) 1px solid;
   border-radius: 4px;
   width: 100%;
@@ -159,5 +163,42 @@ input[type="date"]:hover {
 
 .btn__wrapper {
   margin-right: 10px;
+}
+
+.filters__item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+
+.filters__item_term {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.counter {
+  display: flex;
+  flex-direction: row;
+  margin: 0 10px;
+  align-items: center;
+  justify-content: center;
+  background: #E1F5FE;
+}
+
+.counter__btn {
+  background: #B3E5FC;
+  border-style: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.counter__num {
+  margin: 0 5px;
 }
 

@@ -8,6 +8,7 @@ import {EditTrainingPage} from "./pages/EditTrainingPage";
 import {EditEmployeePage} from "./pages/EditEmployeePage";
 import {EditDepartmentPage} from "./pages/EditDepartmentPage";
 import {EmployeePage} from "./pages/EmployeePage";
+import {EmployeesFilterPage} from "./pages/EmployeesFilterPage";
 
 /**
  * Компонент, возвращающий пути для приложения, в зависимости от авторизации и уровня доступа.
@@ -18,6 +19,7 @@ export const useRoutes = (isAuthenticated, isSuperuser) => {
         return (
             <Routes>
                 <Route path="/" element={<EmployeesPage/>}/>
+                <Route path="filters" element={<EmployeesFilterPage/>}/>
                 <Route path="departments" element={<DepartmentsPage/>}/>
                 <Route path="trainings" element={<TrainingsPage/>}/>
                 <Route path="employee/:id" element={<EmployeePage/>}/>
